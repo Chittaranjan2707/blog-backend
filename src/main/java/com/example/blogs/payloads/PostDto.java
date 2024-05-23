@@ -20,8 +20,18 @@ public class PostDto {
     private String title;
     private String content;
     private String imageName;
-    private Date addDate;
+    //private Date addDate;
     private CategoryDto category;
     private UserDto user;
     private Set<CommentDto> comments=new HashSet<>();
+    private long addDate;
+
+    public long getAddDate() {
+        return addDate;
+    }
+
+    public void setAddDate(Date addDate) {
+        // Convert Date to timestamp (milliseconds)
+        this.addDate = addDate.getTime();
+    }
 }

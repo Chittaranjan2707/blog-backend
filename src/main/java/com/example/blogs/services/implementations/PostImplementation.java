@@ -46,8 +46,10 @@ public class PostImplementation implements PostService {
         post.setCategory(category);
 
         Post newPost= this.postRepo.save(post);
+        PostDto responseDto=this.modelMapper.map(newPost,PostDto.class);
+        responseDto.setAddDate(newPost.getAddDate());
 
-        return this.modelMapper.map(newPost,PostDto.class);
+        return responseDto;
     }
 
     @Override
